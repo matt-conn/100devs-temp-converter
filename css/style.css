@@ -1,0 +1,219 @@
+/* Box Model Hack */
+* {
+	box-sizing: border-box;
+}
+
+section, article, aside, footer, header, nav {
+	display: block;
+	/* make semantic elements behave like <div> elements in legacy browsers. */
+}
+
+/*******************************************
+/* VARIABLES
+/*******************************************/
+:root {
+	--calc-case: rgb(211, 195, 165);
+	--calc-case-light: #dfd7ba;
+	--calc-bg: #588d79;
+	--calc-buttons: #37a4cc;
+	--calc-digits: #2a2a29;
+	--calc-clear: #c82b1c;
+	--calc-display: #b9d7d1;
+	
+	--shadow-color: 158deg 26% 25%;
+	--shadow-elevation-medium:
+	0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+	0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+	2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+	5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
+
+	--shadow-color-high: 40deg 22% 45%;
+	--shadow-elevation-high:
+	0.3px 0.5px 0.7px hsl(var(--shadow-color-high) / 0.34),
+	1.5px 2.9px 3.7px -0.4px hsl(var(--shadow-color-high) / 0.34),
+	2.7px 5.4px 6.8px -0.7px hsl(var(--shadow-color-high) / 0.34),
+	4.5px 8.9px 11.2px -1.1px hsl(var(--shadow-color-high) / 0.34),
+	7.1px 14.3px 18px -1.4px hsl(var(--shadow-color-high) / 0.34),
+	11.2px 22.3px 28.1px -1.8px hsl(var(--shadow-color-high) / 0.34),
+	17px 33.9px 42.7px -2.1px hsl(var(--shadow-color-high) / 0.34),
+	25px 50px 62.9px -2.5px hsl(var(--shadow-color-high) / 0.34);
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+body {
+	font-family: sans-serif;
+	background: var(--calc-case);
+}
+
+#calc-emoji {
+	display: none;
+}
+
+.key:hover, .btn:hover {
+	cursor: pointer;
+}
+
+.key, .btn {
+	font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+}
+
+.btn {
+	font-size: 1.2rem;
+}
+
+.emoji-nudge {
+	line-height: 0.7;
+}
+
+
+/******************************************
+/* CALC
+/*******************************************/
+.case {
+	display: flex;
+	justify-content: center;
+}
+
+.calc {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: var(--calc-bg);
+	border-radius: 8px;
+	max-width: 575px;
+	margin: 50px 25px 0 25px;
+	box-shadow: var(--shadow-elevation-high);
+	border: 2px solid #3F6556;
+	padding-bottom: 35px;
+	z-index: 0;
+}
+
+.inputs {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#display, .key, .btn {
+	box-shadow: var(--shadow-elevation-medium);
+	z-index: 1;
+}
+
+.click {
+	box-shadow: none;
+}
+
+#display {
+	width: 80%;
+	height: 70px;
+	font-family: 'Press Start 2P', sans-serif;
+	font-size: 3rem;
+	border: 2px solid var(--calc-display);
+	padding: 10px 0;
+	background: #000;
+	color: var(--calc-display);
+	text-align: center;
+	margin-top: 55px;
+	margin-bottom: 15px;
+	border-radius: 50px;
+}
+
+.keys {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.key, .btn {
+	border-radius: 5px;
+}
+
+.key {
+	background: var(--calc-digits);
+	width: 25%;
+	margin: 0;
+	margin: 0 5px 10px 5px;
+	padding: 20px 15px;
+	text-align: center;
+	color: #fff;
+	font-size: 1.3rem;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+}
+
+.btn {
+	margin: 10px 0;
+	padding: 15px 0;
+	background: var(--calc-buttons);
+	color: white;
+	text-align: center;
+}
+
+.key-clr, .key-del {
+	background: var(--calc-clear);
+}
+
+/*******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+.brand {
+	position: relative;
+	width: 70%;
+	top: 30px;
+}
+
+.calc-brand, .calc-name {
+	font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+}
+
+.calc-brand {
+	font-size: 2.0rem;
+}
+
+.calc-name {
+	font-size: 1.5rem;
+}
+
+.tag {
+	font-size: 1.2rem;
+	font-family: 'Permanent Marker', cursive;
+	z-index: -1;
+}
+
+.tag-get {
+	position: absolute;
+	transform: rotate(45deg);
+	right: 3%;
+	top: 45px;
+}
+
+.tag-first {
+	position: absolute;
+	left: 1%;
+	bottom: 65px;
+	transform: rotate(-70deg);
+}
+
+.tag-boats {
+	position: absolute;
+	top: 112px;
+	left: 4%;
+	transform: rotate(-15deg);
+}
+
+.tag-facts {
+	position: absolute;
+	transform: rotate(-90deg);
+	top: 185px;
+	right: -40px;
+}
